@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AspNetAuthApi.Models;
+using AuthApi.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace AspNetAuthApi.Database
@@ -15,5 +16,8 @@ namespace AspNetAuthApi.Database
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Role> Roles { get; set; }
     }
 }

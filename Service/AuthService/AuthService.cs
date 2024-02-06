@@ -8,6 +8,7 @@ using AspNetAuthApi.Database;
 using AspNetAuthApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using static AuthApi.Utilities.AppConstants;
 
 namespace AspNetAuthApi.Service
 {
@@ -24,8 +25,10 @@ namespace AspNetAuthApi.Service
         public async Task<ServiceResponse<string>> Login(string username, string password)
         {
             var response = new ServiceResponse<string>();
-            var user = await _dbContext.Users.
-                FirstOrDefaultAsync(u => u.UserName.ToLower() == username.ToLower());
+            var user = await _dbContext.Users
+                            .Where(u => u.UserName.ToLower() == username.ToLower())
+                            .Include(u => u.Role)
+                            .FirstOrDefaultAsync();
 
             if (user == null)
             {
@@ -40,6 +43,7 @@ namespace AspNetAuthApi.Service
             else
             {
                 response.Data = CreateToken(user);
+                response.Message = "Login Successful";
             }
 
             return response;
@@ -99,7 +103,8 @@ namespace AspNetAuthApi.Service
             List<Claim> claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.UserName)
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.Role, user.Role.Name)
             };
 
             SymmetricSecurityKey key = new SymmetricSecurityKey(System.Text.Encoding.UTF8

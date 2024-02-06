@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "G:\\C# Code Practice\\AspNetAuthentication\\AspNetAuthApi\\AspNetAuthApi.csproj": {}
+    "D:\\Sayed\\AuthApi\\AspNetAuthApi.csproj": {}
   },
   "projects": {
-    "G:\\C# Code Practice\\AspNetAuthentication\\AspNetAuthApi\\AspNetAuthApi.csproj": {
+    "D:\\Sayed\\AuthApi\\AspNetAuthApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\C# Code Practice\\AspNetAuthentication\\AspNetAuthApi\\AspNetAuthApi.csproj",
+        "projectUniqueName": "D:\\Sayed\\AuthApi\\AspNetAuthApi.csproj",
         "projectName": "AspNetAuthApi",
-        "projectPath": "G:\\C# Code Practice\\AspNetAuthentication\\AspNetAuthApi\\AspNetAuthApi.csproj",
-        "packagesPath": "C:\\Users\\sayed\\.nuget\\packages\\",
-        "outputPath": "G:\\C# Code Practice\\AspNetAuthentication\\AspNetAuthApi\\obj\\",
+        "projectPath": "D:\\Sayed\\AuthApi\\AspNetAuthApi.csproj",
+        "packagesPath": "C:\\Users\\jony\\.nuget\\packages\\",
+        "outputPath": "D:\\Sayed\\AuthApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sayed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jony\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -69,6 +69,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "Swashbuckle.AspNetCore.Filters": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
